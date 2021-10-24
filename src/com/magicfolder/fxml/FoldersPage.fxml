@@ -1,0 +1,63 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<VBox stylesheets="@../styles/styles.css" style="-fx-background-color: #3570ce;" fx:controller="com.magicfolder.FoldersPageController"
+      xmlns:fx="http://javafx.com/fxml">
+    <HBox styleClass="header">
+        <padding>
+            <Insets topRightBottomLeft="5"/>
+        </padding>
+        <Label textFill="white" styleClass="header-text" text="MagicFolder">
+            <graphic>
+                <ImageView>
+                    <Image url="@../../../icons/folder-icon-blue.png"/>
+                </ImageView>
+            </graphic>
+        </Label>
+    </HBox>
+    <HBox>
+        <VBox style="-fx-background-color: #20385e;">
+            <VBox alignment="CENTER" styleClass="toolbar-button">
+                <padding>
+                    <Insets top="20" bottom="20" left="40" right="40"/>
+                </padding>
+                <ImageView scaleY="0.7" scaleX="0.7">
+                    <Image url="@../../../icons/home-icon-white.png"/>
+                </ImageView>
+                <Label textFill="white" styleClass="toolbar-text" text="Home"/>
+            </VBox>
+            <VBox alignment="CENTER" styleClass="toolbar-button">
+                <padding>
+                    <Insets top="20" bottom="20" left="40" right="40"/>
+                </padding>
+                <ImageView scaleY="0.7" scaleX="0.7">
+                    <Image url="@../../../icons/folder-icon-white.png"/>
+                </ImageView>
+                <Label textFill="white" styleClass="toolbar-text" text="Folders"/>
+            </VBox>
+            <VBox alignment="CENTER" styleClass="toolbar-button">
+                <padding>
+                    <Insets top="20" bottom="20" left="40" right="40"/>
+                </padding>
+                <ImageView scaleY="0.7" scaleX="0.7">
+                    <Image url="@../../../icons/settings-icon-white.png"/>
+                </ImageView>
+                <Label textFill="white" styleClass="toolbar-text" text="Settings"/>
+            </VBox>
+        </VBox>
+        <HBox spacing="10" HBox.hgrow="ALWAYS">
+            <padding>
+                <Insets topRightBottomLeft="30"/>
+            </padding>
+            <VBox fx:id="dragMenu" alignment="CENTER" HBox.hgrow="ALWAYS" styleClass="drag-menu" onDragOver="#onDragOver"
+                  onDragEntered="#onDragEntered" onDragExited="#onDragExited" onDragDropped="#onDragDropped">
+                <Label styleClass="drag-menu-text" text="Drop files, directories and folders here." textFill="white"/>
+            </VBox>
+        </HBox>
+    </HBox>
+</VBox>

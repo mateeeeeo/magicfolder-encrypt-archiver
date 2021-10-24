@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox style="-fx-background-color: #3570ce;" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.magicfolder.OpenFolderPageController">
+   <VBox style="-fx-background-color: #20385e;">
+      <VBox fx:id="extractBtn" alignment="CENTER" onMouseClicked="#extractSelected" styleClass="toolbar-button">
+         <padding>
+            <Insets bottom="20" left="40" right="40" top="20" />
+         </padding>
+         <ImageView scaleX="0.7" scaleY="0.7">
+            <Image url="@../../../icons/extract-icon.png" />
+         </ImageView>
+         <Label styleClass="toolbar-text" text="Extract" textFill="white" />
+      </VBox>
+      <VBox alignment="CENTER" styleClass="toolbar-button">
+         <padding>
+            <Insets bottom="20" left="40" right="40" top="20" />
+         </padding>
+         <ImageView scaleX="0.7" scaleY="0.7">
+            <Image url="@../../../icons/settings-icon-white.png" />
+         </ImageView>
+         <Label styleClass="toolbar-text" text="Folder Settings" textFill="white" />
+      </VBox>
+   </VBox>
+   <VBox onMouseClicked="#deselectAll" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3570ce;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+      <HBox prefHeight="20.0" prefWidth="600.0">
+         <padding>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </padding>
+         <Label maxWidth="1.7976931348623157E308" text="Filename" textFill="WHITE" HBox.hgrow="SOMETIMES" />
+         <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" />
+         <Label text="Size" textFill="WHITE" />
+      </HBox>
+      <Separator prefWidth="200.0" />
+      <ListView fx:id="fileList" prefHeight="200.0" prefWidth="200.0">
+         <VBox.margin>
+            <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+         </VBox.margin>
+      </ListView>
+   </VBox>
+</HBox>

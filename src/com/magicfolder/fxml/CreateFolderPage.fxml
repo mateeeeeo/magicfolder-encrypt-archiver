@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox style="-fx-background-color: #3570ce;" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.magicfolder.CreateFolderPageController">
+    <HBox styleClass="header">
+        <padding>
+            <Insets topRightBottomLeft="5" />
+        </padding>
+        <Label styleClass="header-text" text="MagicFolder" textFill="white">
+            <graphic>
+                <ImageView>
+                    <Image url="@../../../icons/folder-icon-blue.png" />
+                </ImageView>
+            </graphic>
+            <font>
+                <Font name="Berlin X-Bold" size="12" />
+            </font>
+        </Label>
+    </HBox>
+    <HBox HBox.hgrow="ALWAYS">
+        <VBox style="-fx-background-color: #20385e;">
+            <VBox fx:id="createFolderButton" alignment="CENTER" onMouseClicked="#onCreateFolderButtonClicked" styleClass="toolbar-button">
+                <padding>
+                    <Insets bottom="20" left="40" right="40" top="20" />
+                </padding>
+                <ImageView scaleX="0.7" scaleY="0.7">
+                    <Image url="@../../../icons/plus-icon.png" />
+                </ImageView>
+                <Label styleClass="toolbar-text" text="Create Folder" textFill="white" />
+            </VBox>
+            <VBox alignment="CENTER" styleClass="toolbar-button">
+                <padding>
+                    <Insets bottom="20" left="40" right="40" top="20" />
+                </padding>
+                <ImageView scaleX="0.7" scaleY="0.7">
+                    <Image url="@../../../icons/settings-icon-white.png" />
+                </ImageView>
+                <Label styleClass="toolbar-text" text="Folder Settings" textFill="white" />
+            </VBox>
+        </VBox>
+        <VBox>
+            <HBox spacing="10.0" HBox.hgrow="ALWAYS">
+                <padding>
+                    <Insets topRightBottomLeft="15" />
+                </padding>
+                <TextField fx:id="createFolderNameField" promptText="Folder Name" />
+                <PasswordField fx:id="createFolderPasswordField" promptText="Password" />
+                <HBox>
+                    <TextField fx:id="createFolderPathField" promptText="Path">
+                  <HBox.margin>
+                     <Insets right="4.0" />
+                  </HBox.margin></TextField>
+                    <Button fx:id="browseFilesBtn" mnemonicParsing="false" onAction="#openFileChooser" text="Browse" />
+                </HBox>
+<!--                <ComboBox promptText="Encryption Type" />-->
+            </HBox>
+         <VBox fx:id="filesContainer" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0">
+            <padding>
+               <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+            </padding></VBox>
+        </VBox>
+    </HBox>
+</VBox>
