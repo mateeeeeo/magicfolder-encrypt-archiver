@@ -1,3 +1,5 @@
+package com.magicfolder;
+
 import com.magicfolder.Main;
 
 public class Main1 {

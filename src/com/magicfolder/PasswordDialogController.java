@@ -2,6 +2,7 @@ package com.magicfolder;
 
 import com.magicfolder.helpers.BCrypt;
 import com.magicfolder.helpers.Folder;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,6 +12,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
@@ -59,6 +61,13 @@ public class PasswordDialogController {
                 openFolderPageController.setFolder(magicFolder, key, iv);
 
                 Stage openFolderStage = (Stage) submitBtn.getScene().getWindow();
+                openFolderStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                    @Override
+                    public void handle(WindowEvent windowEvent) {
+                        System.out.println("Deleted temp files");
+                        openFolderPageController.deleteTempFiles();
+                    }
+                });
                 openFolderStage.setScene(new Scene(openFilesContainer, 840, 600));
             } else {
                 incorrectPwLabel.setVisible(true);

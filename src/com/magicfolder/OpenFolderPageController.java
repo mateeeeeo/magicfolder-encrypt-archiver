@@ -57,6 +57,12 @@ public class OpenFolderPageController implements Initializable {
         selectedFiles.clear();
     }
 
+    public void deleteTempFiles() {
+        for (FileListItem item : fileList.getItems()) {
+            item.deleteTempFile();
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         selectedFiles = new ArrayList<>();

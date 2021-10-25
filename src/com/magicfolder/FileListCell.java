@@ -44,14 +44,16 @@ public class FileListCell extends ListCell<FileListItem> {
     private Image fxIconImg = null;
     private FXMLLoader loader = null;
 
-    private void extractAndRunFile(FileListItem fileListItem) {
+    private FileListItem fileListItem;
+
+    private void extractAndRunFile() {
         try {
-            File file = new File(tempDirPath + "/" + fileListItem.getFileName());
+            File tempFile = new File(tempDirPath + "/" + fileListItem.getFileName());
             fileListItem.getFolder().extract(fileListItem.getFileName(), tempDirPath,
                     fileListItem.getFolderKey(), fileListItem.getFolderIv());
 
-            Desktop.getDesktop().open(file);
-            file.deleteOnExit();
+            Desktop.getDesktop().open(tempFile);
+//            tempFile.deleteOnExit();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -60,6 +62,8 @@ public class FileListCell extends ListCell<FileListItem> {
     @Override
     protected void updateItem(FileListItem item, boolean empty) {
         super.updateItem(item, empty);
+
+        fileListItem = item;
 
         if (!empty && item != null) {
             if (loader == null) {
@@ -104,7 +108,7 @@ public class FileListCell extends ListCell<FileListItem> {
             container.setOnMouseClicked(event -> {
                 if (event.getButton().equals(MouseButton.PRIMARY)) {
                     if (event.getClickCount() == 2) {
-                        extractAndRunFile(item);
+                        extractAndRunFile();
                     }
                 }
             });

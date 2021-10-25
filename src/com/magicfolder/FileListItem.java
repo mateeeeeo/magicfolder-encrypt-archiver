@@ -2,6 +2,8 @@ package com.magicfolder;
 
 import com.magicfolder.helpers.Folder;
 
+import java.io.File;
+
 public class FileListItem {
     private int fileId;
     private String fileName;
@@ -53,5 +55,14 @@ public class FileListItem {
         this.folder = folder;
         this.folderKey = folderKey;
         this.folderIv = folderIv;
+    }
+
+    public void deleteTempFile() {
+        final String tempDirPath = System.getProperty("java.io.tmpdir");
+        final File tempFile = new File(tempDirPath + "/" + fileName);
+
+        if(tempFile.exists()) {
+            tempFile.delete();
+        }
     }
 }
