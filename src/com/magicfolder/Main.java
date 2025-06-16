@@ -19,7 +19,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        Font.loadFont(getClass().getResource("/fonts/ModernSans-Light.otf").toExternalForm(), 16);
+        Font.loadFont(getClass().getResource("/fonts/Inter.ttf").toExternalForm(), 16);
+        Font.loadFont(getClass().getResource("/fonts/Inter_bold.ttf").toExternalForm(), 16);
+        Font.loadFont(getClass().getResource("/fonts/Inter_medium.ttf").toExternalForm(), 16);
         try {
             if(openedFilePath == null) {
                 Parent root = FXMLLoader.load(getClass().getResource("fxml/FoldersPage.fxml"));

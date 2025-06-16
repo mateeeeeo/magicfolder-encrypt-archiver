@@ -1,155 +1,148 @@
 package com.magicfolder;
 
-import com.magicfolder.helpers.Folder;
-import javafx.embed.swing.SwingFXUtils;
+import com.magicfolder.components.FileTreeTableView;
+import com.magicfolder.components.FileTreeTableViewToolbar;
+import com.magicfolder.helpers.Toast;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
+import javafx.scene.control.*;
+import javafx.scene.control.Dialog;
+import javafx.scene.layout.*;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.stage.Window;
+import org.apache.commons.io.FilenameUtils;
 
-import javax.swing.*;
-import javax.swing.filechooser.FileSystemView;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.net.URL;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
-import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class CreateFolderPageController implements Initializable {
-    @FXML
-    private TextField createFolderNameField;
-    @FXML
-    private PasswordField createFolderPasswordField;
-    @FXML
-    private TextField createFolderPathField;
-    @FXML
-    private Button browseFilesBtn;
-    @FXML
-    private VBox filesContainer;
 
-    private List<File> files;
+    @FXML
+    private FileTreeTableView fileTree;
+
+    private List<File> files = new ArrayList<>();
+
+    @FXML
+    private FileTreeTableViewToolbar fileTreeToolbar;
+
 
     public void setFiles(List<File> files) {
         this.files = files;
+        this.fileTree.setFiles(this.files.stream().map(f -> new FileNode(f)).collect(Collectors.toList()));
     }
 
     public void displayFiles() {
-        if (!files.isEmpty()) {
-            String fileNameNoExtension = files.get(0).getName().substring(0, files.get(0).getName().lastIndexOf('.'));
-            createFolderNameField.setText(fileNameNoExtension);
+        this.fileTree.setMode(FileTreeTableView.Mode.CREATE_ARCHIVE);
+        this.fileTree.displayFiles();
 
-            String filePath = files.get(0).getPath().replace(files.get(0).getName(), "");
-            createFolderPathField.setText(filePath);
-
-            Label fileSize;
-            Label fileName;
-            HBox fileContainer;
-            HBox space;
-            ImageView iconImageView;
-            BufferedImage icon;
-                    DecimalFormat decimalFormat = new DecimalFormat("#,###");
-
-            int i = 1;
-            for (File file : files) {
-                icon = (BufferedImage) ((ImageIcon) FileSystemView.getFileSystemView()
-                        .getSystemIcon(file)).getImage();
-
-                iconImageView = new ImageView(SwingFXUtils.toFXImage(icon, null));
-                iconImageView.setFitWidth(16);
-                iconImageView.setFitHeight(16);
-
-                fileSize = new Label(decimalFormat.format(file.length()));
-                fileSize.setTextFill(Color.WHITE);
-
-                fileName = new Label(i + ". " + file.getName());
-                fileName.setTextFill(Color.WHITE);
-
-                space = new HBox();
-                HBox.setHgrow(space, Priority.ALWAYS);
-
-                fileContainer = new HBox();
-                fileContainer.getChildren().addAll(iconImageView, fileName, space, fileSize);
-                HBox.setHgrow(fileContainer, Priority.ALWAYS);
-
-                filesContainer.getChildren().add(fileContainer);
-                i++;
-            }
-        }
+        this.fileTreeToolbar.setMode(FileTreeTableView.Mode.CREATE_ARCHIVE);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        files = new ArrayList<>();
+        fileTreeToolbar.setOnToolbarIconClicked(action -> {
+            switch (action) {
+                case DELETE:
+                    this.fileTree.deleteDir();
+                    break;
+                case RENAME:
+                    this.fileTree.renameSelected();
+                    break;
+                case ADD_FILE:
+                    final DirectoryChooser fileChooser = new DirectoryChooser();
+                    fileChooser.setTitle("Select a Folder");
+                    Window window = this.fileTree.getScene().getWindow();
+                    File selectedDirectory = fileChooser.showDialog(window);
 
-//        createFolderPathField.textProperty().addListener(((observableValue, oldValue, newValue) -> {
-//            onPathChanged(newValue);
-//        }));
+                    if (selectedDirectory == null) {
+                        break;
+                    }
+                    this.fileTree.addFile(selectedDirectory, this.fileTree.getSelectionModel().getSelectedItem());
+                    break;
+                case ADD_FOLDER:
+                    this.fileTree.addDir();
+                    break;
+                case LOCK:
+                    FileChooser saveArchiveChooser = new FileChooser();
+                    saveArchiveChooser.setInitialFileName(FilenameUtils.removeExtension(this.files.get(0).getName()) + ".mgf");
+                    File destFile = saveArchiveChooser.showSaveDialog(this.fileTree.getScene().getWindow());
+                    String password = askForPassword((Stage) this.fileTree.getScene().getWindow());
 
-//        createFolderNameField.textProperty().addListener(((observableValue, oldValue, newValue) -> {
-//            onNameChanged(oldValue, newValue);
-//        }));
+                    if(destFile == null || password == null) {
+                        break;
+                    }
+
+                    this.fileTree.createArchive(destFile, password);
+                    Toast.showToast((Stage) this.fileTree.getScene().getWindow(), "Locked archive!",
+                            "rgba(80, 200, 120,0.8)");
+            }
+        });
     }
 
-    @FXML
-    public void onCreateFolderButtonClicked() {
-        if(files.size() > 0) {
-            Folder folder = new Folder(createFolderNameField.getText(),
-                    createFolderPathField.getText() + createFolderNameField.getText() + ".mgf",
-                    createFolderPasswordField.getText(), files);
-            folder.createArchive();
+    public String askForPassword(Stage ownerStage) {
+        Dialog<List<String>> dialog = new Dialog<>();
+        dialog.initOwner(ownerStage);
+        dialog.setTitle("Enter Password");
+
+        ButtonType okButtonType = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+        dialog.getDialogPane().getButtonTypes().addAll(okButtonType);
+
+        PasswordField passwordField = new PasswordField();
+        passwordField.setPromptText("Password");
+        PasswordField passwordConfirmField = new PasswordField();
+        passwordConfirmField.setPromptText("Confirm Password");
+
+        VBox content = new VBox(10);
+        content.setPadding(new Insets(10));
+        content.getChildren().addAll(passwordField, passwordConfirmField);
+        dialog.getDialogPane().setContent(content);
+
+        dialog.setResultConverter(dialogButton -> {
+            List<String> results = new ArrayList<>();
+            if (dialogButton == okButtonType) {
+                results.add(passwordField.getText());
+                results.add(passwordConfirmField.getText());
+                return results;
+            }
+            return null;
+        });
+
+        Optional<List<String>> result = dialog.showAndWait();
+        List<String> passwords = result.orElse(null);
+        if (passwords == null) {
+            return null;
+        }
+        if (Objects.equals(passwords.get(0), passwords.get(1))) {
+            return passwords.get(0);
+        } else {
+            Toast.showToast(ownerStage, "Password didn't match.", "rgba(237, 26, 26, 0.8)");
+            return askForPassword(ownerStage);
         }
     }
 
-    public void onNameChanged(String oldVal, String newVal) {
-        String currentPath = createFolderPathField.getText();
-
-        String newPath = currentPath.replaceFirst("(?s)"+oldVal+"(?!.*?"+oldVal+")", newVal);
-        System.out.println(newPath);
-        createFolderPathField.setText(newPath);
-//        int fileNameIndex = currentPath.lastIndexOf(oldVal) + 1;
-//        StringBuilder sb = new StringBuilder(currentPath);
-//        sb.delete(fileNameIndex, currentPath.length() - 4);
-//        sb.insert(fileNameIndex, newVal);
-//        System.out.println(sb.toString());
-//        createFolderPathField.setText(sb.toString());
-    }
-
-//    public void onPathChanged(String newVal) {
-//        int fileNameStartIndex = newVal.lastIndexOf("\\") + 1;
-//        String fileName = newVal.substring(fileNameStartIndex).replace(".mgf", "");
-//
-//        createFolderNameField.setText(fileName);
-//    }
-
     @FXML
-    public void openFileChooser() {
-        Window window = browseFilesBtn.getScene().getWindow();
+    public void navigateBack(Event event) {
+        System.out.println(event);
 
-        final FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialFileName(createFolderNameField.getText());
-        fileChooser.setInitialDirectory(new File(createFolderPathField.getText().replace(createFolderNameField.getText() + ".mgf", "")));
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Magic Folder(*.mgf)", "*.mgf"));
-        File file = fileChooser.showSaveDialog(window);
+        try {
+            Parent newRoot = FXMLLoader.load(getClass().getResource("fxml/FoldersPage.fxml"));
+            Stage currentStage = (Stage) ((Control) event.getSource()).getScene().getWindow();
 
-        if(file != null) {
-            String fileName = file.getName();
-            String fileNameWithoutExtension = fileName.substring(0, fileName.length() - 4);
-            createFolderNameField.setText(fileNameWithoutExtension);
-            createFolderPathField.setText(file.getPath().replace(fileName, ""));
+            currentStage.setTitle("MagicFolder - Terminal");
+            currentStage.setScene(new Scene(newRoot, 800, 600));
+            currentStage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
         }
     }
 }
