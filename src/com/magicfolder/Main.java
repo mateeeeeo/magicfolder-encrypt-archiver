@@ -8,7 +8,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-import javax.swing.filechooser.FileSystemView;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Arrays;
@@ -19,9 +18,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        Font.loadFont(getClass().getResource("/fonts/Inter.ttf").toExternalForm(), 16);
-        Font.loadFont(getClass().getResource("/fonts/Inter_bold.ttf").toExternalForm(), 16);
-        Font.loadFont(getClass().getResource("/fonts/Inter_medium.ttf").toExternalForm(), 16);
+        Font.loadFont(getClass().getResource("resources/fonts/Inter.ttf").toExternalForm(), 16);
+        Font.loadFont(getClass().getResource("resources/fonts/Inter_bold.ttf").toExternalForm(), 16);
+        Font.loadFont(getClass().getResource("resources/fonts/Inter_medium.ttf").toExternalForm(), 16);
         try {
             if(openedFilePath == null) {
                 Parent root = FXMLLoader.load(getClass().getResource("fxml/FoldersPage.fxml"));

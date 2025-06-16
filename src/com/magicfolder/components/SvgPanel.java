@@ -5,16 +5,16 @@ import com.kitfox.svg.SVGUniverse;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
 import java.net.URI;
+import java.net.URL;
 
 public class SvgPanel extends JPanel {
     private final SVGDiagram diagram;
 
-    public SvgPanel(File svgFile, Dimension dimensions) throws Exception {
+    public SvgPanel(URL svgPath, Dimension dimensions) throws Exception {
         setBackground(new Color(0,0,0,0));
         SVGUniverse universe = new SVGUniverse();
-        URI svgUri = universe.loadSVG(svgFile.toURI().toURL());
+        URI svgUri = universe.loadSVG(svgPath);
         diagram = universe.getDiagram(svgUri);
         setPreferredSize(dimensions); // optional
     }

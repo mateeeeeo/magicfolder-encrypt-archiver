@@ -32,8 +32,14 @@ A desktop application for **securely encrypting and managing files and folders**
 | [`svgSalamander`](https://github.com/blackears/svgSalamander) | SVG rendering within JavaFX via SwingNode |
 | [`JavaFX`](https://openjfx.io/) | Main GUI framework |
  
+<<<<<<< HEAD
 ### Icons
 - [Remix Icon](https://remixicon.com/) — for file, folder, and action icons  
+=======
+### 🎨 Icons
+ 
+- [Remix Icon](https://remixicon.com/) — for file, folder, and action java.magicfolder.resources.icons  
+>>>>>>> 50a4b81 (Refactor icon paths for release build)
 - [Google Material Design Icons](https://fonts.google.com/icons) — for UI controls and dialogs
  
 *All third-party assets are used under their respective licenses.*

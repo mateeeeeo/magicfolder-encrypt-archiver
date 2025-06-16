@@ -1,9 +1,10 @@
 package com.magicfolder;
 
-import com.magicfolder.Main;
+import javafx.application.Application;
 
 public class Main1 {
     public static void main(String[] args) {
-        Main.main(args);
+//        Main.main(args);
+        Application.launch(Main.class, args);
     }
 }

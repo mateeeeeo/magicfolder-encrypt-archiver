@@ -1,73 +1,45 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="EncryptArchiver:jar">
+  <artifact type="jar" build-on-make="true" name="EncryptArchiver:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/EncryptArchiver_jar</output-path>
     <root id="archive" name="EncryptArchiver.jar">
       <element id="module-output" name="EncryptArchiver" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/lib/javafx-swt.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/lib/javafx.web.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/lib/javafx.base.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/lib/javafx.fxml.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/lib/javafx.media.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/lib/javafx.swing.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/lib/javafx.controls.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/lib/javafx.graphics.jar" path-in-jar="/" />
-      <element id="library" level="application" name="jfoenix-9.0.8" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-console-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-datetime-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-debug-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-errorhandling-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-file-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-file-l1-2-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-file-l2-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-handle-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-heap-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-interlocked-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-libraryloader-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-localization-l1-2-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-memory-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-namedpipe-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-processenvironment-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-processthreads-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-processthreads-l1-1-1.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-profile-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-rtlsupport-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-string-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-synch-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-synch-l1-2-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-sysinfo-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-timezone-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-core-util-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-crt-conio-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-crt-convert-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-crt-environment-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-crt-filesystem-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-crt-heap-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-crt-locale-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-crt-math-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-crt-multibyte-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-crt-private-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-crt-process-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-crt-runtime-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-crt-stdio-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-crt-string-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-crt-time-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/api-ms-win-crt-utility-l1-1-0.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/concrt140.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/decora_sse.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/fxplugins.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/glass.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/glib-lite.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/gstreamer-lite.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/javafx_font.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/javafx_iio.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/jfxmedia.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/jfxwebkit.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/msvcp140.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/prism_common.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/prism_d3d.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/prism_sw.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/ucrtbase.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../JavaFX/javafx-sdk-12.0.1/bin/vcruntime140.dll" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/javafx-swt.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/javafx.web.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/javafx.base.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/javafx.fxml.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/javafx.media.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/javafx.swing.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/javafx.controls.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/javafx.graphics.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/modules/svgSalamander-1.1.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/modules/commons-io-2.19.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/annotations/24.0.0/annotations-24.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/modules/java-json.jar" path-in-jar="/" />
+      <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jetbrains/annotations/24.0.0/annotations-24.0.0.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/modules/svgSalamander-1.1.4.jar" />
+      <element id="file-copy" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/javafx-swt.jar" />
+      <element id="file-copy" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/javafx.web.jar" />
+      <element id="file-copy" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/javafx.base.jar" />
+      <element id="file-copy" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/javafx.fxml.jar" />
+      <element id="file-copy" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/javafx.media.jar" />
+      <element id="file-copy" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/javafx.swing.jar" />
+      <element id="file-copy" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/javafx.controls.jar" />
+      <element id="file-copy" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/javafx.graphics.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/modules/java-json.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/modules/commons-io-2.19.0.jar" />
+      <element id="file-copy" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/libdecora_sse.dylib" />
+      <element id="file-copy" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/libfxplugins.dylib" />
+      <element id="file-copy" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/libglass.dylib" />
+      <element id="file-copy" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/libglib-lite.dylib" />
+      <element id="file-copy" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/libgstreamer-lite.dylib" />
+      <element id="file-copy" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/libjavafx_font.dylib" />
+      <element id="file-copy" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/libjavafx_iio.dylib" />
+      <element id="file-copy" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/libjfxmedia_avf.dylib" />
+      <element id="file-copy" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/libjfxmedia.dylib" />
+      <element id="file-copy" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/libjfxwebkit.dylib" />
+      <element id="file-copy" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/libprism_common.dylib" />
+      <element id="file-copy" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/libprism_es2.dylib" />
+      <element id="file-copy" path="$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib/libprism_sw.dylib" />
     </root>
   </artifact>
 </component>

@@ -1,7 +1,6 @@
 <component name="libraryTable">
   <library name="JavaFX12">
     <CLASSES>
-      <root url="file://$USER_HOME$/JavaFX/javafx-sdk-12.0.1/lib" />
       <root url="file://$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib" />
     </CLASSES>
     <JAVADOC />
@@ -12,7 +11,6 @@
       <root url="file://$USER_HOME$/JavaFX/javafx-sdk-12.0.1/lib" />
     </SOURCES>
     <jarDirectory url="file://$USER_HOME$/Downloads/javafx-sdk-17.0.15/lib" recursive="false" />
-    <jarDirectory url="file://$USER_HOME$/JavaFX/javafx-sdk-12.0.1/lib" recursive="false" />
     <jarDirectory url="file://$USER_HOME$/JavaFX/javafx-sdk-12.0.1/lib" recursive="false" type="SOURCES" />
   </library>
 </component>

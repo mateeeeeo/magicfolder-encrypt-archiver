@@ -7,14 +7,15 @@ import javafx.scene.Node;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import java.net.URL;
 
 public class FXSVGIcon extends SwingNode {
-    public FXSVGIcon(String svgPath, int width, int height) {
-        File svgFile = new File(svgPath);
+    public FXSVGIcon(URL svgPath, int width, int height) {
+        // File svgFile = new File(svgPath);
 
         SwingUtilities.invokeLater(() -> {
             try {
-                var svgPanel = new SvgPanel(svgFile, new Dimension(width, height));
+                var svgPanel = new SvgPanel(svgPath, new Dimension(width, height));
                 setContent(svgPanel);
 
                 // swing node black background bug workaround

@@ -1,4 +1,4 @@
-package com.magicfolder.helpers;
+package  com.magicfolder.helpers;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
