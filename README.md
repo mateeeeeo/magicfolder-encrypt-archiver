@@ -21,7 +21,6 @@ A desktop application for **securely encrypting and managing files and folders**
 - **Archive FileSystem similar to native**:
   - Drag-and-drop files & folders from OS
   - Supports complex nesting
-  - Renaming
  
 ## Libraries & Assets Used
 ### Dependencies
