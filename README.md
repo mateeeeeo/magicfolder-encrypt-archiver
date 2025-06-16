@@ -1,4 +1,4 @@
-# 🔐 JavaFX Encryption Archive App
+# MagicFolder - A JavaFX Encryptor App
  
 A desktop application for **securely encrypting and managing files and folders**, built with JavaFX and AES-GCM encryption. Designed with usability and security in mind, it provides a streamlined UI for organizing and securing sensitive data locally.
  
@@ -11,7 +11,7 @@ A desktop application for **securely encrypting and managing files and folders**
 - 📁 **Drag & drop file management** using a JavaFX TreeTableView
 - ✏️ **Editable folders** and inline renaming
 - 💾 **Easy drag & drop archive updates**
-- 📄 **Encrypted metadata** using JSON (`org.json`)
+- 📄 **Encrypts basic file metadata** using JSON (`org.json`)
 - 📚 **Nested folder support**
 - 📂 **Easy file importing/exporting
 ---
@@ -30,21 +30,9 @@ A desktop application for **securely encrypting and managing files and folders**
  
 ## 🖥️ UI Highlights
  
-- **TreeTableView**:
-  - Drag-and-drop from OS
-  - Internal folder reorganization
-  - Right-click context menu with delete and "Add Folder"
-- **Styled ChoiceBox** acting as a button
-- **Android-style toast popup** for transient notifications
-- **Password dialog** for archive creation and access
- 
----
- 
-## 📦 File I/O
- 
-- Buffered file copying with `Files.newInputStream` and byte arrays
-- Temporary file usage for secure intermediate storage
-- Platform-compatible: tested on macOS and Windows
+- **FileSystem similar to native**:
+  - Drag-and-drop files & folders from OS
+  - Supports complex nesting
  
 ---
  
