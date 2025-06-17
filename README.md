@@ -11,16 +11,18 @@ A desktop application for **securely encrypting and managing files and folders**
 - **Easy file importing/exporting**
 
 ## Encryption Details
+- **Passwords hashed using BCrypt**
 - **Two-tiered encryption**:
-  -  Hashed user password encrypts `key1/iv1`
-  -  `key1/iv1` encrypts the file contents and dictionary
+  -  Hashed user password used to generate `key2`, which encrypts `key1`
+  - `key1` then encrypts and decrypts the file contents and dictionary
 - **Dictionary based approach**
-  - Serialized as minified JSON
+  - Serialized as minified JSON, which is encrypted for added protection
  
 ## UI Highlights
 - **Archive FileSystem similar to native**:
   - Drag-and-drop files & folders from OS
   - Supports complex nesting
+  - Supports easy editing
  
 ## Libraries & Assets Used
 ### Dependencies
@@ -32,14 +34,8 @@ A desktop application for **securely encrypting and managing files and folders**
 | [`svgSalamander`](https://github.com/blackears/svgSalamander) | SVG rendering within JavaFX via SwingNode |
 | [`JavaFX`](https://openjfx.io/) | Main GUI framework |
  
-<<<<<<< HEAD
 ### Icons
-- [Remix Icon](https://remixicon.com/) — for file, folder, and action icons  
-=======
-### 🎨 Icons
- 
-- [Remix Icon](https://remixicon.com/) — for file, folder, and action java.magicfolder.resources.icons  
->>>>>>> 50a4b81 (Refactor icon paths for release build)
-- [Google Material Design Icons](https://fonts.google.com/icons) — for UI controls and dialogs
+- [Remix Icon](https://remixicon.com/) 
+- [Google Material Design Icons](https://fonts.google.com/icons)
  
 *All third-party assets are used under their respective licenses.*
