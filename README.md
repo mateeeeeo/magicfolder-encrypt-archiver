@@ -38,4 +38,5 @@ A desktop application for **securely encrypting and managing files and folders**
 - [Remix Icon](https://remixicon.com/) 
 - [Google Material Design Icons](https://fonts.google.com/icons)
  
+
 *All third-party assets are used under their respective licenses.*
