@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox style="-fx-background-color: #161B1D;" stylesheets="@../styles/styles.css" xmlns:fx="http://javafx.com/fxml/1"
+<VBox style="-fx-background-color: #161B1D;" stylesheets="/styles/styles.css" xmlns:fx="http://javafx.com/fxml/1"
       xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.magicfolder.MainPageController">
     <HBox styleClass="header" alignment="CENTER">
         <padding>
@@ -31,7 +31,7 @@
                 <Label styleClass="drag-menu-text" text="Drop files, directories and folders here" textFill="white">
                     <graphic>
                         <ImageView>
-                            <Image url="@../../../icons/add-circle-line.png"/>
+                            <Image url="/icons/add-circle-line.png"/>
                         </ImageView>
                     </graphic>
                 </Label>

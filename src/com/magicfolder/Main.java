@@ -22,19 +22,20 @@ public class Main extends Application {
             System.out.println("Close");
             System.exit(0);
         });
-        Font.loadFont(getClass().getResource("resources/fonts/Inter.ttf").toExternalForm(), 16);
-        Font.loadFont(getClass().getResource("resources/fonts/Inter_bold.ttf").toExternalForm(), 16);
-        Font.loadFont(getClass().getResource("resources/fonts/Inter_medium.ttf").toExternalForm(), 16);
+        Font.loadFont(getClass().getResource("/fonts/Inter.ttf").toExternalForm(), 16);
+        Font.loadFont(getClass().getResource("/fonts/Inter_bold.ttf").toExternalForm(), 16);
+        Font.loadFont(getClass().getResource("/fonts/Inter_medium.ttf").toExternalForm(), 16);
         try {
             if(openedFilePath == null) {
-                Parent root = FXMLLoader.load(getClass().getResource("fxml/FoldersPage.fxml"));
+                System.out.println("IM HERE");
+                Parent root = FXMLLoader.load(getClass().getResource("/fxml/FoldersPage.fxml"));
                 primaryStage.setTitle("MagicFolder - Terminal");
                 primaryStage.setScene(new Scene(root, 800, 600));
                 primaryStage.show();
             } else {
                 Stage openFolderWindow = new Stage();
                 openFolderWindow.setTitle("MagicFolder - Open");
-                FXMLLoader passwordPageLoader = new FXMLLoader(getClass().getResource("fxml/PasswordPage.fxml"));
+                FXMLLoader passwordPageLoader = new FXMLLoader(getClass().getResource("/fxml/PasswordPage.fxml"));
                 VBox openFolderRoot = passwordPageLoader.load();
                 PasswordDialogController passwordDialogController = passwordPageLoader.getController();
 

@@ -1,6 +1,5 @@
 package com.magicfolder;
 
-import com.kitfox.svg.SVGException;
 import com.magicfolder.components.FileTreeTableView;
 import com.magicfolder.components.FileTreeTableViewToolbar;
 import com.magicfolder.components.SVGIconRasterizer;
@@ -56,7 +55,7 @@ public class CreateFolderPageController implements Initializable {
     private void assignSVGIconToBackIcon() {
         SVGIconRasterizer rasterizer = new SVGIconRasterizer();
 
-        final Image fxImage = rasterizer.getFxImage("/com/magicfolder/resources/icons/arrow_back.svg",
+        final Image fxImage = rasterizer.getFxImage("/icons/arrow_back.svg",
                 new Dimension(24, 24));
         backIcon.setImage(fxImage);
     }
@@ -153,7 +152,7 @@ public class CreateFolderPageController implements Initializable {
         System.out.println(event);
 
         try {
-            Parent newRoot = FXMLLoader.load(getClass().getResource("fxml/FoldersPage.fxml"));
+            Parent newRoot = FXMLLoader.load(getClass().getResource("/fxml/FoldersPage.fxml"));
             Stage currentStage = (Stage) ((Control) event.getSource()).getScene().getWindow();
 
             currentStage.setTitle("MagicFolder - Terminal");

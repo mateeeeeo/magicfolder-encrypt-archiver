@@ -105,7 +105,7 @@ public class MainPageController implements Initializable {
     private void navigateToCreateArchive(List<File> files, List<File> folders) {
         try {
             if(files != null) {
-                FXMLLoader createFolderPageLoader = new FXMLLoader(getClass().getResource("fxml/CreateFolderPage.fxml"));
+                FXMLLoader createFolderPageLoader = new FXMLLoader(getClass().getResource("/fxml/CreateFolderPage.fxml"));
                 StackPane createFolderRoot = createFolderPageLoader.load();
                 CreateFolderPageController createFolderPageController = createFolderPageLoader.getController();
                 createFolderPageController.setFiles(files);
@@ -119,7 +119,7 @@ public class MainPageController implements Initializable {
             if (folders != null) {
                 Stage openFolderWindow = new Stage();
                 openFolderWindow.setTitle("MagicFolder - Open");
-                FXMLLoader passwordPageLoader = new FXMLLoader(getClass().getResource("fxml/PasswordPage.fxml"));
+                FXMLLoader passwordPageLoader = new FXMLLoader(getClass().getResource("/fxml/PasswordPage.fxml"));
                 VBox openFolderRoot = passwordPageLoader.load();
                 PasswordDialogController passwordDialogController = passwordPageLoader.getController();
 

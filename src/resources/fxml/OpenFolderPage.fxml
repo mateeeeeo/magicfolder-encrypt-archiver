@@ -7,7 +7,7 @@
 
 <?import com.magicfolder.components.FileTreeTableView?>
 <?import com.magicfolder.components.FileTreeTableViewToolbar?>
-<StackPane stylesheets="@../styles/styles.css"
+<StackPane stylesheets="/styles/styles.css"
            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
            fx:controller="com.magicfolder.OpenArchivePageController">
     <HBox style="-fx-background-color: #161B1D;">

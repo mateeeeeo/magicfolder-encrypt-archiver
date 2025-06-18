@@ -8,7 +8,7 @@
 
 <?import  com.magicfolder.components.FileTreeTableView?>
 <?import com.magicfolder.components.FileTreeTableViewToolbar?>
-<StackPane stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea"
+<StackPane stylesheets="/styles/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea"
            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.magicfolder.CreateFolderPageController">
     <VBox alignment="TOP_CENTER" style="-fx-background-color: #161B1D;">
         <HBox alignment="CENTER_LEFT" styleClass="header">

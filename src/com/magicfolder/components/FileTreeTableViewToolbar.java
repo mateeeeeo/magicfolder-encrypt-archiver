@@ -5,7 +5,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
 import java.awt.*;
-import java.util.Properties;
 
 
 public class FileTreeTableViewToolbar extends HBox {
@@ -64,19 +63,19 @@ public class FileTreeTableViewToolbar extends HBox {
 
         setSpacing(16);
 
-        ImageView addIcon = createIconWithAction("/com/magicfolder/resources/icons/add_file.svg",
+        ImageView addIcon = createIconWithAction("/icons/add_file.svg",
                 TOOLBAR_ACTION.ADD_FILE);
         getChildren().add(addIcon);
 
-        ImageView folderAddIcon = createIconWithAction("/com/magicfolder/resources/icons/new_folder.svg",
+        ImageView folderAddIcon = createIconWithAction("/icons/new_folder.svg",
                 TOOLBAR_ACTION.ADD_FOLDER);
         getChildren().add(folderAddIcon);
 
-        ImageView renameIcon = createIconWithAction("/com/magicfolder/resources/icons/edit.svg",
+        ImageView renameIcon = createIconWithAction("/icons/edit.svg",
                 TOOLBAR_ACTION.RENAME);
         getChildren().add(renameIcon);
 
-        ImageView trashIcon = createIconWithAction("/com/magicfolder/resources/icons/trash.svg",
+        ImageView trashIcon = createIconWithAction("/icons/trash.svg",
                 TOOLBAR_ACTION.DELETE);
         getChildren().add(trashIcon);
 
@@ -84,18 +83,18 @@ public class FileTreeTableViewToolbar extends HBox {
         getChildren().add(separator1);
 
         if (mode == FileTreeTableView.Mode.EDIT_ARCHIVE) {
-            ImageView extractIcon = createIconWithAction("/com/magicfolder/resources/icons/unarchive.svg",
+            ImageView extractIcon = createIconWithAction("/icons/unarchive.svg",
                     TOOLBAR_ACTION.EXTRACT);
             getChildren().add(extractIcon);
 
             var separator2 = createSeparator();
             getChildren().add(separator2);
 
-            ImageView saveIcon = createIconWithAction("/com/magicfolder/resources/icons/save.svg",
+            ImageView saveIcon = createIconWithAction("/icons/save.svg",
                     TOOLBAR_ACTION.SAVE);
             getChildren().add(saveIcon);
         } else if(mode == FileTreeTableView.Mode.CREATE_ARCHIVE) {
-            ImageView lockIcon = createIconWithAction("/com/magicfolder/resources/icons/lock.svg",
+            ImageView lockIcon = createIconWithAction("/icons/lock.svg",
                     TOOLBAR_ACTION.LOCK);
             getChildren().add(lockIcon);
         }

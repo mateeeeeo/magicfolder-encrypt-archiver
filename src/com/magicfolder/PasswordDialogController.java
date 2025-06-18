@@ -38,7 +38,7 @@ public class PasswordDialogController {
 
     public void onSubmit() {
         try {
-            FXMLLoader openFolderLoader = new FXMLLoader(getClass().getResource("fxml/OpenFolderPage.fxml"));
+            FXMLLoader openFolderLoader = new FXMLLoader(getClass().getResource("/fxml/OpenFolderPage.fxml"));
             StackPane openFilesContainer = openFolderLoader.load();
             OpenArchivePageController openArchivePageController = openFolderLoader.getController();
 

@@ -1,0 +1,44 @@
+plugins {
+    id 'application'
+    id 'java'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+application {
+    mainClass = 'com.magicfolder.Main1' // ← use your actual main class
+}
+
+group 'com.magicfolder'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+javafx {
+    version = "17.0.15"
+    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.swing', 'javafx.base']
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+        resources {
+            srcDir("src/resources")
+        }
+    }
+}
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'org.json:json:20231013'
+    implementation("com.kitfox.svg:svg-salamander:1.0")
+    implementation("commons-io:commons-io:2.19.0")
+}
+
+test {
+    useJUnitPlatform()
+}
