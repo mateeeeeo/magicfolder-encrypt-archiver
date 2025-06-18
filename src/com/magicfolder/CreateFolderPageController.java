@@ -1,7 +1,9 @@
 package com.magicfolder;
 
+import com.kitfox.svg.SVGException;
 import com.magicfolder.components.FileTreeTableView;
 import com.magicfolder.components.FileTreeTableViewToolbar;
+import com.magicfolder.components.SVGIconRasterizer;
 import com.magicfolder.helpers.Toast;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -12,6 +14,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Dialog;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
@@ -19,6 +23,7 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 import org.apache.commons.io.FilenameUtils;
 
+import java.awt.*;
 import java.io.File;
 import java.net.URL;
 import java.util.*;
@@ -29,12 +34,12 @@ public class CreateFolderPageController implements Initializable {
 
     @FXML
     private FileTreeTableView fileTree;
-
-    private List<File> files = new ArrayList<>();
-
     @FXML
     private FileTreeTableViewToolbar fileTreeToolbar;
+    @FXML
+    private ImageView backIcon;
 
+    private List<File> files = new ArrayList<>();
 
     public void setFiles(List<File> files) {
         this.files = files;
@@ -48,8 +53,15 @@ public class CreateFolderPageController implements Initializable {
         this.fileTreeToolbar.setMode(FileTreeTableView.Mode.CREATE_ARCHIVE);
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    private void assignSVGIconToBackIcon() {
+        SVGIconRasterizer rasterizer = new SVGIconRasterizer();
+
+        final Image fxImage = rasterizer.getFxImage("/com/magicfolder/resources/icons/arrow_back.svg",
+                new Dimension(24, 24));
+        backIcon.setImage(fxImage);
+    }
+
+    private void setupFileToolbar() {
         fileTreeToolbar.setOnToolbarIconClicked(action -> {
             switch (action) {
                 case DELETE:
@@ -87,6 +99,12 @@ public class CreateFolderPageController implements Initializable {
                             "rgba(80, 200, 120,0.8)");
             }
         });
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        assignSVGIconToBackIcon();
+        setupFileToolbar();
     }
 
     public String askForPassword(Stage ownerStage) {

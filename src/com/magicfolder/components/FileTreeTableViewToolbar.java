@@ -1,7 +1,10 @@
 package com.magicfolder.components;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
+import java.awt.*;
 import java.util.Properties;
 
 
@@ -43,62 +46,57 @@ public class FileTreeTableViewToolbar extends HBox {
         return separator;
     }
 
+    private ImageView createIconWithAction(String svgResourcePath, TOOLBAR_ACTION action) {
+        SVGIconRasterizer rasterizer = new SVGIconRasterizer();
+        final Image fxImage = rasterizer.getFxImage(svgResourcePath,
+                new Dimension(24, 24));
+        ImageView icon = new ImageView();
+        icon.setImage(fxImage);
+        icon.setOnMouseClicked(event -> {
+            this.toolbarIconClickedHandler.run(action);
+        });
+
+        return icon;
+    }
+
     private void init() {
         getChildren().clear();
-        Properties props = System.getProperties();
-        props.setProperty("swing.jlf.contentPaneTransparent", "true");
 
         setSpacing(16);
 
-        System.out.println(getClass().getResource("/com/magicfolder/resources/icons/add_file.svg").toExternalForm());
-        FXSVGIcon addIcon = new FXSVGIcon(getClass().getResource("/com/magicfolder/resources/icons/add_file.svg"), 24, 24);
-        addIcon.setOnMouseClicked(event -> {
-            this.toolbarIconClickedHandler.run(TOOLBAR_ACTION.ADD_FILE);
-        });
+        ImageView addIcon = createIconWithAction("/com/magicfolder/resources/icons/add_file.svg",
+                TOOLBAR_ACTION.ADD_FILE);
         getChildren().add(addIcon);
 
-        FXSVGIcon folderAddIcon = new FXSVGIcon(getClass().getResource("/com/magicfolder/resources/icons/new_folder.svg"), 24, 24);
-        folderAddIcon.setOnMouseClicked(event -> {
-            this.toolbarIconClickedHandler.run(TOOLBAR_ACTION.ADD_FOLDER);
-        });
+        ImageView folderAddIcon = createIconWithAction("/com/magicfolder/resources/icons/new_folder.svg",
+                TOOLBAR_ACTION.ADD_FOLDER);
         getChildren().add(folderAddIcon);
 
-        FXSVGIcon renameIcon = new FXSVGIcon(getClass().getResource("/com/magicfolder/resources/icons/edit.svg"), 24, 24);
-        renameIcon.setOnMouseClicked(event -> {
-            this.toolbarIconClickedHandler.run(TOOLBAR_ACTION.RENAME);
-        });
+        ImageView renameIcon = createIconWithAction("/com/magicfolder/resources/icons/edit.svg",
+                TOOLBAR_ACTION.RENAME);
         getChildren().add(renameIcon);
 
-        FXSVGIcon trashIcon = new FXSVGIcon(getClass().getResource("/com/magicfolder/resources/icons/trash.svg"), 24, 24);
-        trashIcon.setOnMouseClicked(event -> {
-            this.toolbarIconClickedHandler.run(TOOLBAR_ACTION.DELETE);
-        });
+        ImageView trashIcon = createIconWithAction("/com/magicfolder/resources/icons/trash.svg",
+                TOOLBAR_ACTION.DELETE);
         getChildren().add(trashIcon);
 
         var separator1 = createSeparator();
         getChildren().add(separator1);
 
         if (mode == FileTreeTableView.Mode.EDIT_ARCHIVE) {
-
-
-            FXSVGIcon extractIcon = new FXSVGIcon(this.getClass().getResource("/com/magicfolder/resources/icons/unarchive.svg"), 24, 24);
-            extractIcon.setOnMouseClicked(event -> {
-                this.toolbarIconClickedHandler.run(TOOLBAR_ACTION.EXTRACT);
-            });
+            ImageView extractIcon = createIconWithAction("/com/magicfolder/resources/icons/unarchive.svg",
+                    TOOLBAR_ACTION.EXTRACT);
             getChildren().add(extractIcon);
 
             var separator2 = createSeparator();
             getChildren().add(separator2);
-            FXSVGIcon saveIcon = new FXSVGIcon(getClass().getResource("/com/magicfolder/resources/icons/save.svg"), 24, 24);
-            saveIcon.setOnMouseClicked(event -> {
-                this.toolbarIconClickedHandler.run(TOOLBAR_ACTION.SAVE);
-            });
+
+            ImageView saveIcon = createIconWithAction("/com/magicfolder/resources/icons/save.svg",
+                    TOOLBAR_ACTION.SAVE);
             getChildren().add(saveIcon);
         } else if(mode == FileTreeTableView.Mode.CREATE_ARCHIVE) {
-            FXSVGIcon lockIcon = new FXSVGIcon(getClass().getResource("/com/magicfolder/resources/icons/lock.svg"), 24, 24);
-            lockIcon.setOnMouseClicked(event -> {
-                this.toolbarIconClickedHandler.run(TOOLBAR_ACTION.LOCK);
-            });
+            ImageView lockIcon = createIconWithAction("/com/magicfolder/resources/icons/lock.svg",
+                    TOOLBAR_ACTION.LOCK);
             getChildren().add(lockIcon);
         }
 

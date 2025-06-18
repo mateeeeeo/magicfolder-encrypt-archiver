@@ -18,8 +18,7 @@
 
             <Button maxHeight="10.0" maxWidth="5.0" styleClass="back-button" onMouseClicked="#navigateBack">
                 <graphic>
-                    <ImageView>
-                        <Image url="@../../../icons/arrow-left-s-line.png"/>
+                    <ImageView fx:id="backIcon">
                     </ImageView>
                 </graphic>
                 <font>

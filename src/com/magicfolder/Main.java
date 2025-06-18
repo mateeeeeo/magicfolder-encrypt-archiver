@@ -18,6 +18,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        primaryStage.setOnCloseRequest(event -> {
+            System.out.println("Close");
+            System.exit(0);
+        });
         Font.loadFont(getClass().getResource("resources/fonts/Inter.ttf").toExternalForm(), 16);
         Font.loadFont(getClass().getResource("resources/fonts/Inter_bold.ttf").toExternalForm(), 16);
         Font.loadFont(getClass().getResource("resources/fonts/Inter_medium.ttf").toExternalForm(), 16);
