@@ -62,6 +62,9 @@ public class PasswordDialogController {
                 openFolderStage.setOnCloseRequest(windowEvent -> {
                     System.out.println("Deleted temp files");
                 });
+                submitBtn.getScene().getWindow().setWidth(840);
+                submitBtn.getScene().getWindow().setHeight(600);
+                submitBtn.getScene().getWindow().centerOnScreen();
                 openFolderStage.setScene(new Scene(openFilesContainer, 840, 600));
             } else {
                 incorrectPwLabel.setVisible(true);

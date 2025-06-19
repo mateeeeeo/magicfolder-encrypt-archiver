@@ -120,8 +120,10 @@ public class MainPageController implements Initializable {
 
             if (folders != null) {
                 Stage openFolderWindow = new Stage();
+                openFolderWindow.setWidth(300);
+                openFolderWindow.setHeight(300f / (840f / 600f));
                 openFolderWindow.setTitle("MagicFolder - Open");
-                FXMLLoader passwordPageLoader = new FXMLLoader(getClass().getResource("/fxml/PasswordPage.fxml"));
+                FXMLLoader passwordPageLoader = new FXMLLoader(getClass().getResource("/fxml/EnterPasswordPage.fxml"));
                 VBox openFolderRoot = passwordPageLoader.load();
                 PasswordDialogController passwordDialogController = passwordPageLoader.getController();
 

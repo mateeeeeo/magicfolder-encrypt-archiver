@@ -37,22 +37,23 @@
     -fx-background-color: #5b9aff;
 }
 
-.menu-text {
+.enter-password-label {
     -fx-font-family: "Modern Sans Light";
-    -fx-font-weight: 700;
-    -fx-font-size: 20;
-}
-.drag-menu-container {
+    -fx-font-size: 16;
 }
 
-.drag-menu {
+.drag-menu, .text-field {
     -fx-background-color: #1C2226;
     -fx-border-width: 1;
     -fx-border-style: solid;
     -fx-border-radius: 8px;
     -fx-background-radius: 8px;
     -fx-border-color: #272F35;
+}
 
+.text-field {
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: white;
 }
 
 .drag-menu-text {
@@ -61,9 +62,16 @@
     -fx-font-size: 16;
 }
 
+.button {
+    -fx-background-color: #0D9EF2;
+    -fx-border-radius: 16px;
+    -fx-background-radius: 16px;
+    -fx-text-fill: white;
+    -fx-padding: 8px 16px;
+}
+
 .drag-menu-choose-btn {
     -fx-background-color: #0D9EF2;
-
     -fx-font-size: 16;
     -fx-border-radius: 16px;
     -fx-background-radius: 16px;
@@ -73,22 +81,10 @@
     -fx-text-fill: #F4F5F5;
 }
 
-
-
 .file-text {
     -fx-font-size: 12;
     -fx-font-family: "Modern Sans Light";
     -fx-font-weight: 700;
-}
-
-.text-field {
-    -fx-background-color: transparent;
-    -fx-text-fill: white;
-    -fx-prompt-text-fill: white;
-    -fx-border-color: white;
-    -fx-border-width: 1.5;
-    -fx-border-style: hidden hidden solid hidden;
-    -fx-padding: 0;
 }
 
 .archive-name-field {

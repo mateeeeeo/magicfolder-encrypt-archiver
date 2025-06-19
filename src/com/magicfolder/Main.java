@@ -35,7 +35,7 @@ public class Main extends Application {
             } else {
                 Stage openFolderWindow = new Stage();
                 openFolderWindow.setTitle("MagicFolder - Open");
-                FXMLLoader passwordPageLoader = new FXMLLoader(getClass().getResource("/fxml/PasswordPage.fxml"));
+                FXMLLoader passwordPageLoader = new FXMLLoader(getClass().getResource("/fxml/EnterPasswordPage.fxml"));
                 VBox openFolderRoot = passwordPageLoader.load();
                 PasswordDialogController passwordDialogController = passwordPageLoader.getController();
 
