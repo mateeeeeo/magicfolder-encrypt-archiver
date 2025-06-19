@@ -17,9 +17,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class FileTreeTableView extends TreeTableView<FileNode> {
@@ -82,6 +80,7 @@ public class FileTreeTableView extends TreeTableView<FileNode> {
 
         try {
             var visitor = new SimpleFileVisitor<Path>() {
+                private Map<String, TreeItem<FileNode>> pathFileNodeMap = new HashMap<>();
                 public TreeItem<FileNode> root = null;
                 public TreeItem<FileNode> current = null;
                 public String currPath = "";
@@ -100,11 +99,20 @@ public class FileTreeTableView extends TreeTableView<FileNode> {
                     if (root == null) {
                         root = new TreeItem<>(new FileNode(new File(String.valueOf(dir)), true));
                         current = root;
+                        pathFileNodeMap.put(String.valueOf(dir), current);
+
                         currPath = String.valueOf(dir);
                         return FileVisitResult.CONTINUE;
                     }
 
                     var child = new TreeItem<>(new FileNode(new File(String.valueOf(dir)), true));
+                    String parentPath = new File(String.valueOf(dir)).getParent();
+                    if (pathFileNodeMap.containsKey(parentPath)) {
+                        // we assign current to a previously discovered dir node in a previous level
+                        current = pathFileNodeMap.get(parentPath);
+                    } else {
+                        pathFileNodeMap.put(String.valueOf(dir), current);
+                    }
                     current.getChildren().add(child);
 
                     current = child;

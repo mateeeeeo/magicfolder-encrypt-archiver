@@ -73,15 +73,18 @@ public class CreateFolderPageController implements Initializable {
                     this.fileTree.renameSelected();
                     break;
                 case ADD_FILE:
-                    final DirectoryChooser fileChooser = new DirectoryChooser();
-                    fileChooser.setTitle("Select a Folder");
+                    final FileChooser fileChooser = new FileChooser();
+                    fileChooser.setTitle("Select a file");
                     Window window = this.fileTree.getScene().getWindow();
-                    File selectedDirectory = fileChooser.showDialog(window);
+                    List<File> selectedFiles = fileChooser.showOpenMultipleDialog(window);
 
-                    if (selectedDirectory == null) {
+                    if (selectedFiles == null || selectedFiles.size() == 0) {
                         break;
                     }
-                    this.fileTree.addFile(selectedDirectory, this.fileTree.getSelectionModel().getSelectedItem());
+
+                    for (File f : selectedFiles) {
+                        this.fileTree.addFile(f, this.fileTree.getSelectionModel().getSelectedItem());
+                    }
                     break;
                 case ADD_FOLDER:
                     this.fileTree.addDir();
