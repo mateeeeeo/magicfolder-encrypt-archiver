@@ -308,7 +308,12 @@ public class FileTreeTableView extends TreeTableView<FileNode> {
         TreeItem<FileNode> treeItem = new TreeItem<>(item);
         parent.getChildren().add(treeItem);
 
-        super.edit(lastFileId, fileNameCol);
+        parent.setExpanded(true);
+        treeItem.setExpanded(true);
+
+        int row = getRow(treeItem);
+
+        super.edit(row, fileNameCol);
         lastFileId++;
     }
 
