@@ -19,7 +19,7 @@ import java.util.*;
 
 public class MainPageController implements Initializable {
     @FXML
-    private ChoiceBox<String> chooseFileBtn;
+    private MenuButton chooseFileBtn;
 
     @FXML
     public void onDragOver(DragEvent event) {
@@ -85,6 +85,7 @@ public class MainPageController implements Initializable {
         }
     }
 
+    @FXML
     private void chooseArchive() {
         List<File> archives = new ArrayList<>();
 
@@ -102,6 +103,7 @@ public class MainPageController implements Initializable {
         navigateToCreateArchive(null, archives);
     }
 
+    @FXML
     private void navigateToCreateArchive(List<File> files, List<File> folders) {
         try {
             if(files != null) {
@@ -143,19 +145,19 @@ public class MainPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        chooseFileBtn.getItems().addAll("Choose File", "Choose Directory", "Choose Archive");
-        chooseFileBtn.setValue("Choose...");
-        chooseFileBtn.valueProperty().addListener((obs, oldVal, newVal) -> {
-            if (Objects.equals(newVal, "Choose File")) {
-                chooseFile();
-            } else if (Objects.equals(newVal, "Choose Directory")) {
-                chooseDirectory();
-            } else if(Objects.equals(newVal, "Choose Archive")) {
-                chooseArchive();
-            }
-        });
+//        chooseFileBtn.setValue("Choose...");
+//        chooseFileBtn.valueProperty().addListener((obs, oldVal, newVal) -> {
+//            if (Objects.equals(newVal, "Choose File")) {
+//                chooseFile();
+//            } else if (Objects.equals(newVal, "Choose Directory")) {
+//                chooseDirectory();
+//            } else if(Objects.equals(newVal, "Choose Archive")) {
+//                chooseArchive();
+//            }
+//            chooseFileBtn.setValue("Choose...");
+//        });
     }
-
+    @FXML
     private void chooseDirectory() {
         List<File> files = new ArrayList<>();
         Window window = chooseFileBtn.getScene().getWindow();

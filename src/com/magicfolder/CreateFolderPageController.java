@@ -152,7 +152,7 @@ public class CreateFolderPageController implements Initializable {
         System.out.println(event);
 
         try {
-            Parent newRoot = FXMLLoader.load(getClass().getResource("/fxml/FoldersPage.fxml"));
+            Parent newRoot = FXMLLoader.load(getClass().getResource("/fxml/MainPage.fxml"));
             Stage currentStage = (Stage) ((Control) event.getSource()).getScene().getWindow();
 
             currentStage.setTitle("MagicFolder - Terminal");

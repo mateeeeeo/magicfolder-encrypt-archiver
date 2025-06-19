@@ -28,7 +28,7 @@ public class Main extends Application {
         try {
             if(openedFilePath == null) {
                 System.out.println("IM HERE");
-                Parent root = FXMLLoader.load(getClass().getResource("/fxml/FoldersPage.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainPage.fxml"));
                 primaryStage.setTitle("MagicFolder - Terminal");
                 primaryStage.setScene(new Scene(root, 800, 600));
                 primaryStage.show();

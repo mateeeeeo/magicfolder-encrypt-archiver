@@ -37,11 +37,16 @@
                 </Label>
                 <Label textFill="#828282" style="-fx-font-size: 15; -fx-font-weight: 500;">Or</Label>
                 <Region prefHeight="0" />
-                <ChoiceBox fx:id="chooseFileBtn" styleClass="drag-menu-choose-btn">
+                <MenuButton fx:id="chooseFileBtn" styleClass="drag-menu-choose-btn" text="Choose..." textFill="white">
                     <padding>
                         <Insets top="8" bottom="8" left="16" right="16" />
                     </padding>
-                </ChoiceBox>
+                    <items>
+                        <MenuItem text="Choose File" onAction="#chooseFile"/>
+                        <MenuItem text="Choose Directory" onAction="#chooseDirectory"/>
+                        <MenuItem text="Choose Archive" onAction="#chooseArchive"/>
+                    </items>
+                </MenuButton>
             </VBox>
         </HBox>
     </HBox>
