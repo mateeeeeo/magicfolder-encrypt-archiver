@@ -63,6 +63,9 @@ public class CreateFolderPageController implements Initializable {
     private void setupFileToolbar() {
         fileTreeToolbar.setOnToolbarIconClicked(action -> {
             switch (action) {
+                case BACK:
+                    navigateBack();
+                    break;
                 case DELETE:
                     this.fileTree.deleteDir();
                     break;
@@ -102,7 +105,7 @@ public class CreateFolderPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        assignSVGIconToBackIcon();
+//        assignSVGIconToBackIcon();
         setupFileToolbar();
     }
 
@@ -148,12 +151,10 @@ public class CreateFolderPageController implements Initializable {
     }
 
     @FXML
-    public void navigateBack(Event event) {
-        System.out.println(event);
-
+    public void navigateBack() {
         try {
             Parent newRoot = FXMLLoader.load(getClass().getResource("/fxml/MainPage.fxml"));
-            Stage currentStage = (Stage) ((Control) event.getSource()).getScene().getWindow();
+            Stage currentStage = (Stage) this.fileTree.getScene().getWindow();
 
             currentStage.setTitle("MagicFolder - Terminal");
             currentStage.setScene(new Scene(newRoot, 800, 600));

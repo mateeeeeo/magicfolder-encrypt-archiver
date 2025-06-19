@@ -31,7 +31,7 @@
             <!--      </ListView>-->
 
             <!--      <fx:include fx:id="fileTreeToolbar" source="../components/FileTreeTableViewToolbar.fxml"/>-->
-            <FileTreeTableViewToolbar fx:id="fileTreeToolbar" style="-fx-padding: 8px"/>
+            <FileTreeTableViewToolbar fx:id="fileTreeToolbar"/>
             <FileTreeTableView fx:id="fileTree" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
             </FileTreeTableView>
         </VBox>

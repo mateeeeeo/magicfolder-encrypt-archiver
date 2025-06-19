@@ -107,6 +107,10 @@ public class OpenArchivePageController implements Initializable {
 
         fileTreeToolbar.setOnToolbarIconClicked(action -> {
             switch (action) {
+                case BACK:
+                    Stage stage = (Stage) this.fileTree.getScene().getWindow();
+                    stage.close();
+                    break;
                 case DELETE:
                     this.fileTree.deleteDir();
                     break;

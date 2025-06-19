@@ -1,8 +1,12 @@
 package com.magicfolder.components;
 
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 import java.awt.*;
@@ -11,7 +15,7 @@ import java.awt.*;
 public class FileTreeTableViewToolbar extends HBox {
 
     public enum TOOLBAR_ACTION {
-        DELETE, RENAME, ADD_FILE, ADD_FOLDER, EXTRACT, SAVE, LOCK
+        BACK, DELETE, RENAME, ADD_FILE, ADD_FOLDER, EXTRACT, SAVE, LOCK
     }
 
     public static interface ToolbarIconClickedCallback {
@@ -46,9 +50,9 @@ public class FileTreeTableViewToolbar extends HBox {
         return separator;
     }
 
-    private VBox createIconWithAction(String svgResourcePath, TOOLBAR_ACTION action) {
+    private HBox createIconWithAction(String svgResourcePath, TOOLBAR_ACTION action) {
         SVGIconRasterizer rasterizer = new SVGIconRasterizer();
-        VBox container = new VBox();
+        HBox container = new HBox();
 
         final Image fxImage = rasterizer.getFxImage(svgResourcePath,
                 new Dimension(24, 24));
@@ -64,10 +68,34 @@ public class FileTreeTableViewToolbar extends HBox {
         return container;
     }
 
+    private HBox createIconTextPairWithAction(String svgResourcePath, String text, TOOLBAR_ACTION action) {
+        HBox icon = createIconWithAction(svgResourcePath, action);
+        icon.setSpacing(4);
+        icon.setAlignment(Pos.CENTER);
+        Label iconLabel = new Label(text);
+        iconLabel.setStyle("-fx-text-fill: white");
+        icon.getChildren().add(iconLabel);
+        return icon;
+    }
+
+    private HBox createSpacer() {
+        HBox spacer = new HBox();
+        HBox.setHgrow(spacer, Priority.ALWAYS);
+
+        return spacer;
+    }
+
     private void init() {
         getChildren().clear();
 
+        setPadding(new Insets(12,  16, 12, 16));
         setSpacing(16);
+
+        var backIcon = createIconWithAction("/icons/arrow_back.svg", TOOLBAR_ACTION.BACK);
+        getChildren().add(backIcon);
+
+        var separator = createSeparator();
+        getChildren().add(separator);
 
         var addIcon = createIconWithAction("/icons/add_file.svg",
                 TOOLBAR_ACTION.ADD_FILE);
@@ -76,6 +104,9 @@ public class FileTreeTableViewToolbar extends HBox {
         var folderAddIcon = createIconWithAction("/icons/new_folder.svg",
                 TOOLBAR_ACTION.ADD_FOLDER);
         getChildren().add(folderAddIcon);
+
+        separator = createSeparator();
+        getChildren().add(separator);
 
         var renameIcon = createIconWithAction("/icons/edit.svg",
                 TOOLBAR_ACTION.RENAME);
@@ -96,11 +127,11 @@ public class FileTreeTableViewToolbar extends HBox {
             var separator2 = createSeparator();
             getChildren().add(separator2);
 
-            var saveIcon = createIconWithAction("/icons/save.svg",
+            var saveIcon = createIconTextPairWithAction("/icons/save.svg", "Save",
                     TOOLBAR_ACTION.SAVE);
             getChildren().add(saveIcon);
         } else if(mode == FileTreeTableView.Mode.CREATE_ARCHIVE) {
-            var lockIcon = createIconWithAction("/icons/lock.svg",
+            var lockIcon = createIconTextPairWithAction("/icons/lock.svg", "Encrypt",
                     TOOLBAR_ACTION.LOCK);
             getChildren().add(lockIcon);
         }
