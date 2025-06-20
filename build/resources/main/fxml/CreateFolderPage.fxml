@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import com.magicfolder.components.FileTreeTableView?>
+<?import com.magicfolder.components.FileTreeTableViewToolbar?>
+<StackPane stylesheets="/styles/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.magicfolder.CreateFolderPageController">
+    <VBox alignment="TOP_CENTER" style="-fx-background-color: #161B1D;">
+<!--        <HBox alignment="CENTER_LEFT" styleClass="header">-->
+<!--&lt;!&ndash;            <padding>&ndash;&gt;-->
+<!--&lt;!&ndash;                <Insets bottom="16" left="16" right="16" top="16"/>&ndash;&gt;-->
+<!--&lt;!&ndash;            </padding>&ndash;&gt;-->
+
+<!--            <Button maxHeight="10.0" maxWidth="5.0" styleClass="back-button" onMouseClicked="#navigateBack">-->
+<!--                <graphic>-->
+<!--                    <ImageView fx:id="backIcon">-->
+<!--                    </ImageView>-->
+<!--                </graphic>-->
+<!--                <font>-->
+<!--                    <Font size="5.0"/>-->
+<!--                </font>-->
+<!--            </Button>-->
+<!--&lt;!&ndash;            <Label styleClass="header-text" text="Files to Archive" textFill="white"/>&ndash;&gt;-->
+<!--            <HBox HBox.hgrow="ALWAYS"/>-->
+<!--        </HBox>-->
+
+        <HBox HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+            <VBox HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                <HBox HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                    <VBox fx:id="filesContainer" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                        <FileTreeTableViewToolbar fx:id="fileTreeToolbar"/>
+                        <FileTreeTableView fx:id="fileTree" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                        </FileTreeTableView>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </HBox>
+    </VBox>
+</StackPane>

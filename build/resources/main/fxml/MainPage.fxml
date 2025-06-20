@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox style="-fx-background-color: #161B1D;" stylesheets="/styles/styles.css" xmlns:fx="http://javafx.com/fxml/1"
+      xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.magicfolder.MainPageController">
+    <HBox styleClass="header" alignment="CENTER">
+        <padding>
+            <Insets top="16" bottom="16" left="64" right="64"/>
+
+        </padding>
+        <Label styleClass="header-text" text="MagicFolder" textFill="white">
+        </Label>
+        <Region HBox.hgrow="ALWAYS"/>
+        <HBox alignment="CENTER" spacing="16">
+            <Label styleClass="header-my-archives-label" text="My Archives" textFill="white" HBox.hgrow="ALWAYS"
+                   VBox.vgrow="ALWAYS">
+            </Label>
+        </HBox>
+    </HBox>
+    <HBox VBox.vgrow="ALWAYS">
+        <HBox spacing="10" styleClass="drag-menu-container" HBox.hgrow="ALWAYS">
+            <padding>
+                <Insets left="64" right="64" bottom="64"/>
+            </padding>
+            <VBox fx:id="dragMenu" alignment="CENTER" onDragDropped="#onDragDropped"
+                  onDragOver="#onDragOver" styleClass="drag-menu" HBox.hgrow="ALWAYS" spacing="4">
+                <Label styleClass="drag-menu-text" text="Drop files, directories and folders here" textFill="white">
+                    <graphic>
+                        <ImageView>
+                            <Image url="/icons/add-circle-line.png"/>
+                        </ImageView>
+                    </graphic>
+                </Label>
+                <Label textFill="#828282" style="-fx-font-size: 15; -fx-font-weight: 500;">Or</Label>
+                <Region prefHeight="0" />
+                <MenuButton fx:id="chooseFileBtn" styleClass="drag-menu-choose-btn" text="Choose..." textFill="white">
+                    <padding>
+                        <Insets top="8" bottom="8" left="16" right="16" />
+                    </padding>
+                    <items>
+                        <MenuItem text="Choose File" onAction="#chooseFile"/>
+                        <MenuItem text="Choose Directory" onAction="#chooseDirectory"/>
+                        <MenuItem text="Choose Archive" onAction="#chooseArchive"/>
+                    </items>
+                </MenuButton>
+            </VBox>
+        </HBox>
+    </HBox>
+</VBox>
