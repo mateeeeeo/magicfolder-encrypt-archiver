@@ -5,11 +5,11 @@ A desktop application for **securely encrypting and managing files and folders**
 ![Screenshot of the encryption page of MagicFolder](/assets/encrypt_page_screenshot.png)
 
 ## Features
+- **Creates encrypted archives from files and folders**
 - **AES-GCM Encryption** with layered keys
-- **Custom archive format** with block-based file encryption
 - **Simple Drag & Drop file management** using a JavaFX TreeTableView
-- **Editable folders** and inline renaming
-- **Encrypts basic file metadata** using JSON (`org.json`)
+- **Editable folders and files**
+- **Encrypts basic file metadata** using JSON
 - **Nested folder support**
 - **Easy file importing/exporting**
 
