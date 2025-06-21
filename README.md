@@ -1,8 +1,12 @@
 # MagicFolder - A JavaFX Encryptor App
 A desktop application for **securely encrypting and managing files and folders**, built with JavaFX and AES-GCM encryption. Designed with usability and security in mind, it provides a streamlined UI for organizing and securing sensitive data locally.
 
-![Screenshot of the main page of MagicFolder](/assets/main_page_screesnshot.png)
-![Screenshot of the encryption page of MagicFolder](/assets/encrypt_page_screenshot.png)
+
+<div align="center" style="display: flex; gap: 10px">
+  <img src="/assets/main_page_screesnshot.png" width="500"/>
+  <img src="/assets/encrypt_page_screenshot.png" width="500"/>
+</div>
+
 
 ## Features
 - **Creates encrypted archives from files and folders**
